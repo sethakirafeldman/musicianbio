@@ -1,10 +1,8 @@
 import CardMaker from "./CardMaker";
 import Loader from "./Loader";
-import { config } from "../config";
 
 export default function FetchAPI(textInput) {
-    //https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety
-    const apiKey = config.key;
+    const apiKey = process.env.AUTH_TOKEN;
     const engineId= `text-davinci-002`;
     const URI = `https://api.openai.com/v1/engines/${engineId}/completions`;
 
