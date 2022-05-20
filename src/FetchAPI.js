@@ -1,14 +1,16 @@
 import CardMaker from "./CardMaker";
 import Loader from "./Loader";
+import { engineOptions } from "./index"
+import { engineId } from "./index";
 
 export default function FetchAPI(textInput) {
     const apiKey = process.env.AUTH_TOKEN;
-    const engineId= `text-davinci-002`;
+    // let engineId = engineOptions.curie;
     const URI = `https://api.openai.com/v1/engines/${engineId}/completions`;
 
     const data = {
       prompt: `Tell me the origin story of the following musical artist: ${textInput}`,
-      max_tokens: 200,
+      max_tokens: 256,
       temperature: 1,
     };
 
@@ -29,8 +31,7 @@ export default function FetchAPI(textInput) {
           CardMaker(textInput, bio);
           })
       .catch(error => {
-        console.log("error, please try again");
-        document.getElementsByClassName("loader")[0].innerText = `Error: API not responding. OpenAI may be experiencing an outage at this time.`
+        document.getElementsByClassName("loader")[0].innerText = `Error: API not responding. OpenAI may be experiencing an outage at this time, or API key has expired.`
       })    
   }
 

@@ -6,14 +6,36 @@
   </head>
   <body>
 
-    <nav><h1>Somewhat Accurate Musician Bio Maker</h1></nav>
+    <nav>
+      <h1>Somewhat Accurate Musician Bio Maker</h1>
+      <h4>almost true stories about real people</h4>  
+    </nav>
     <main id = "main-container">
+      <label for="choose-engine">Choose AI Engine</label>
+      <select id ="choose-engine" class="select-menu">
+          <option value="curie">Curie</option>
+          <option value="davinci">Davinci</option>
+          <option value="babbage">Babbage</option>
+          <option value="ada">Ada</option>
+      </select>
+
+      <label for="preset-bands">Show Band Member Bios</label>
+      <select id ="preset-bands" class="select-menu">
+        <option value="choose">Select Band</option>
+        <option value="Beatles"> The Beatles</option>
+        <option value="Zeppelin"> Led Zeppelin</option>
+        <option value="Stones">The Rolling Stones</option>
+        <option value="Queen">Queen</option>
+        <option value="Hendrix">The Jimi Hendrix Experience</option>
+      </select>
 
       <form id="musician-form">
         <label for="musician-input"></label>
         <input type = "text" id ="musician-input" name = "musician-input" placeholder="Enter Musician/Band">
         <input type = "button" id ="submit-btn" value="Submit">
+        <input type="button" id ="clear-items" value="Clear">
       </form>
+      <div id="load-location"></div>
     </main>
     <script src="main.js"></script>
 
